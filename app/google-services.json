@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "278064907294",
+    "firebase_url": "https://uc-lottery-app-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "uc-lottery-app",
+    "storage_bucket": "uc-lottery-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278064907294:android:7782068a859dd903c69a0f",
+        "android_client_info": {
+          "package_name": "com.utkarsha.lotteryapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAIpRAKaCq4aqUZWSIFemMV_Ykx67M4lA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
