@@ -51,11 +51,12 @@ class RegisterActivity : AppCompatActivity() {
                 val seedWords = SeedWordGenerator.randomSeedWords()
                 val password = binding.passwordEditText.text.toString()
                 val walletAddress = WalletAddressGenerator.generateWalletAddress()
+                val walletBalance = 1000
 
                 //val database = Firebase.database
                 val myRef = database.getReference("users")
                 //create a new user with unique id and store the seed words and password
-                myRef.child(myRef.push().key.toString()).setValue(hashMapOf("seedWords" to seedWords, "password" to password, "walletAddress" to walletAddress)).addOnCompleteListener {
+                myRef.child(myRef.push().key.toString()).setValue(hashMapOf("seedWords" to seedWords, "password" to password, "walletAddress" to walletAddress, "walletBalance" to walletBalance)).addOnCompleteListener {
                     if(it.isSuccessful) {
                         Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, WordActivity::class.java)
