@@ -3,6 +3,7 @@ package com.utkarsha.lotteryapp.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
@@ -10,6 +11,7 @@ import com.google.firebase.ktx.Firebase
 import com.utkarsha.lotteryapp.MainActivity
 import com.utkarsha.lotteryapp.R
 import com.utkarsha.lotteryapp.databinding.ActivityLoginBinding
+import com.utkarsha.lotteryapp.utils.SharedPrefsUtil
 
 class LoginActivity : AppCompatActivity() {
 
@@ -47,12 +49,17 @@ class LoginActivity : AppCompatActivity() {
                 //val database = Firebase.database
                 val myRef = database.getReference("users")
                 //check if the seed words and password match
-                myRef.get().addOnSuccessListener {
+                myRef.get().addOnSuccessListener { it ->
                     if(it.exists()) {
                         for (user in it.children) {
                             if (user.child("seedWords").value.toString() == seedWords && user.child("password").value.toString() == password) {
                                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                                walletAddress = user.child("walletAddress").value.toString()
+                                walletAddress = user.child("walletAddress").value.toString().let {
+                                    Log.d("Testlog", "Wallet Address: $it")
+                                    SharedPrefsUtil.saveString("walletAddress", "walletAddress", it, this)
+                                    it
+                                }
+
                                 goToMainActivity()
                                 return@addOnSuccessListener
                             }

@@ -20,17 +20,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         navController = navHostFragment.navController
-
-
         binding.bottomNavigation.setupWithNavController(navController)
-
         binding.bottomNavigation.itemIconTintList
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
