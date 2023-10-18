@@ -1,15 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.fragment.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/text_home"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home" />
+        android:layout_height="wrap_content">
+        <!-- Testnet TextView -->
+        <TextView
+            android:id="@+id/testnetTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Testnet"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:textColor="?attr/colorSecondary"
+            android:background="@android:color/transparent" />
 
-</FrameLayout>
+        <!-- ImageView -->
+        <ImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            tools:src="@tools:sample/avatars"
+            android:contentDescription="Profile Image" />
+
+        <!-- Name TextView -->
+        <TextView
+            android:id="@+id/walletTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileImageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:textColor="?attr/colorTertiary"
+            android:layout_marginHorizontal="20dp"
+            tools:text="Wallet Address\nddd"
+            android:textSize="14sp" />
+
+        <!-- Wallet Balance TextView -->
+        <TextView
+            android:id="@+id/walletBalanceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/walletTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textColor="?attr/colorSecondary"
+            android:text="Wallet Balance: 0.00 ETH"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Jackpot Title TextView -->
+        <TextView
+            android:id="@+id/jackpotTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create a Jackpot"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textColor="?attr/colorPrimary" />
+
+        <!-- Title EditText -->
+        <EditText
+            android:id="@+id/titleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:hint="Title"
+            android:inputType="text" />
+
+        <!-- Jackpot Price EditText -->
+        <EditText
+            android:id="@+id/jackpotPriceEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Jackpot Price"
+            android:inputType="number" />
+
+        <!-- Ticket Price EditText -->
+        <EditText
+            android:id="@+id/ticketPriceEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ticket Price"
+            android:inputType="number" />
+
+        <!-- Description EditText -->
+        <EditText
+            android:id="@+id/descriptionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:inputType="textMultiLine"
+            android:lines="4" />
+
+        <!-- Create Jackpot Button -->
+        <Button
+            android:id="@+id/createJackpotButton"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Create Jackpot" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
